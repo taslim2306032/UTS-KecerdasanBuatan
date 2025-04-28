@@ -1,0 +1,29 @@
+def identifikasi_hama(daun_menguning, bercak_hitam, daun_berlubang, tanaman_layu):
+    if daun_menguning and tanaman_layu:
+        return "Ulat Grayak"
+    elif daun_menguning and bercak_hitam:
+        return "Kutu Daun"
+    elif bercak_hitam and daun_berlubang:
+        return "Kumbang Daun"
+    elif daun_berlubang and tanaman_layu:
+        return "Wereng Batang"
+    else:
+        return "Hama tidak diketahui, perlu pemeriksaan lanjut"
+
+def input_gejala():
+    print("Masukkan gejala tanaman (y untuk Ya, n untuk Tidak):")
+    daun_menguning = input("Apakah daun menguning? (y/n): ").lower() == 'y'
+    bercak_hitam = input("Apakah ada bercak hitam? (y/n): ").lower() == 'y'
+    daun_berlubang = input("Apakah daun berlubang? (y/n): ").lower() == 'y'
+    tanaman_layu = input("Apakah tanaman layu? (y/n): ").lower() == 'y'
+    return {
+        "daun_menguning": daun_menguning,
+        "bercak_hitam": bercak_hitam,
+        "daun_berlubang": daun_berlubang,
+        "tanaman_layu": tanaman_layu
+    }
+
+# Program utama
+gejala = input_gejala()
+hasil = identifikasi_hama(**gejala)
+print("\nJenis Hama:", hasil)
